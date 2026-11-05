@@ -9,10 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up(): void
+    public function up(): void
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('flat_id')->constrained()->cascadeOnDelete(); // <-- TUTAJ DODALIŚMY POWIĄZANIE
             $table->string('title'); // Tytuł/nazwa wydatku
             $table->decimal('amount', 8, 2); // Kwota wydatku
             $table->string('category')->nullable(); // Kategoria

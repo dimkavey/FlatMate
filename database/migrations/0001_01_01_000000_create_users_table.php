@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreignId('flat_id')->nullable()->constrained('flats')->nullOnDelete();
+            $table->boolean('is_admin')->default(false); // true = administrator mieszkania, false = zwykły mieszkaniec
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

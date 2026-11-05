@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'flat_id',
+        'is_admin',
     ];
 
     /**
@@ -46,4 +48,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+public function flat()
+{
+    return $this->belongsTo(Flat::class);
+}
+
 }
