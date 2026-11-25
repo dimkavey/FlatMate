@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -8,18 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('expenses', function (Blueprint $table) {
-            $table->foreignId('flat_id')
-                ->nullable()
-                ->constrained('flats')
-                ->cascadeOnDelete();
-        });
+        // Kolumna flat_id jest już tworzona w migracji create_expenses_table.
     }
 
     public function down(): void
     {
-        Schema::table('expenses', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('flat_id');
-        });
+        // Brak zmian do cofnięcia.
     }
 };

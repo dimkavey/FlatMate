@@ -8,21 +8,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('flat_id')
-                ->nullable()
-                ->constrained('flats')
-                ->nullOnDelete();
-
-            $table->boolean('is_admin')->default(false);
-        });
+        // Kolumna flat_id jest już tworzona w migracji create_expenses_table.
     }
 
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('flat_id');
-            $table->dropColumn('is_admin');
-        });
+        // Brak zmian do cofnięcia.
     }
 };
