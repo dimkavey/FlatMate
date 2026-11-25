@@ -54,4 +54,9 @@ public function flat()
     return $this->belongsTo(Flat::class);
 }
 
+public function billPayments()
+    {
+        return $this->hasMany(FlatBillPayment::class);
+    }
+
 }
